@@ -1,0 +1,20 @@
+function doGet(e) {
+  var sheet = SpreadsheetApp
+    .getActiveSpreadsheet()
+    .getSheetByName("Sheet1");
+
+  var suhu = e.parameter.suhu;
+  var kelembapan = e.parameter.kelembapan;
+
+  if (suhu === undefined || kelembapan === undefined) {
+    return ContentService.createTextOutput("Data tidak lengkap");
+  }
+
+  sheet.appendRow([
+    new Date(),
+    suhu,
+    kelembapan
+  ]);
+
+  return ContentService.createTextOutput("Data berhasil disimpan");
+}
