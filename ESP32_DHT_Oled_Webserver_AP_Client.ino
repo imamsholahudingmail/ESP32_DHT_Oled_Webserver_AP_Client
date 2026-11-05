@@ -23,7 +23,7 @@ const int connection_timeout = 20; // Batas waktu koneksi dalam detik
 
 
 WebServer server(80);
-DHT dht(14, DHT22);
+DHT dht(5, DHT22);
 
 void handleRoot() {
   char msg[1500];
